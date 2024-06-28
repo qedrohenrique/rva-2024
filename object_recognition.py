@@ -1,8 +1,8 @@
 from ultralytics import YOLO
 import cv2
-from pathlib import Path
 
 RED = (255, 0, 0)
+IMAGE_SAMPLE = cv2.imread("img.png")
 
 
 def get_model_data():
@@ -26,7 +26,7 @@ def get_font_data(x, y):
 
 def webcam_recognition(webcam_model, webcam_classnames):
     # Webcam and model setup
-    cap = cv2.VideoCapture(0)  # // if you have second camera you can set first parameter as 1
+    cap = cv2.VideoCapture(0)
     cap.set(3, 800)
     cap.set(4, 600)
 
@@ -39,9 +39,7 @@ def webcam_recognition(webcam_model, webcam_classnames):
         recognitions = webcam_model(img, stream=True)
 
         for r in recognitions:
-            boxes = r.boxes
-
-            for box in boxes:
+            for box in r.boxes:
                 x1, y1, x2, y2 = box.xyxy[0]
                 x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
 
@@ -61,8 +59,28 @@ def webcam_recognition(webcam_model, webcam_classnames):
     exit(0)
 
 
+def image_recognition(image_model, image_classnames, image):
+    recognitions = image_model(image)
+
+    if len(recognitions) != 0:
+        for r in recognitions:
+            for box in r.boxes:
+                x1, y1, x2, y2 = box.xyxy[0]
+                x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
+
+                cv2.rectangle(image, (x1, y1), (x2, y2), RED, 2)
+
+                className = image_classnames[int(box.cls[0])]
+                pos, font, fontScale, fontColor, fontWeight = get_font_data(x1, y1)
+
+                cv2.putText(image, className, pos, font, fontScale, fontColor, fontWeight)
+
+    cv2.imshow("Result", image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+
 if __name__ == '__main__':
     model, classNames = get_model_data()
-    webcam_recognition(model, classNames)
-    # image_recognition(mode, classNames, image)
-    # video_recognition(mode, classNames, video)
+    # webcam_recognition(model, classNames)
+    # image_recognition(model, classNames, IMAGE_SAMPLE)
