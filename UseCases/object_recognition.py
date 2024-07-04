@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 
 RED = (255, 0, 0)
-IMAGE_SAMPLE = cv2.imread("../img.png")
+IMAGE_SAMPLE = cv2.imread("img.png")
 
 
 def get_model_data():
