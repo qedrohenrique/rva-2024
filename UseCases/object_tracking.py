@@ -43,12 +43,3 @@ def object_track(cap, term_crit, roi_hist):
 
     cap.release()
     cv2.destroyAllWindows()
-
-
-if __name__ == '__main__':
-    cap = cv2.VideoCapture(0)
-    frame, boundary_box = select_object(cap)
-    term_crit, roi_hist = get_metrics(frame, boundary_box)
-    object_track(cap, term_crit, roi_hist)
-
-

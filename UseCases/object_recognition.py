@@ -2,11 +2,11 @@ from ultralytics import YOLO
 import cv2
 
 RED = (255, 0, 0)
-IMAGE_SAMPLE = cv2.imread("img.png")
+IMAGE_SAMPLE = cv2.imread("../img.png")
 
 
 def get_model_data():
-    return (YOLO("yolo-Weights/yolov8n.pt"),
+    return (YOLO("../yolo-Weights/yolov8n.pt"),
             ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
              "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
              "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella",
@@ -78,9 +78,3 @@ def image_recognition(image_model, image_classnames, image):
     cv2.imshow("Result", image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
-
-
-if __name__ == '__main__':
-    model, classNames = get_model_data()
-    # webcam_recognition(model, classNames)
-    # image_recognition(model, classNames, IMAGE_SAMPLE)
