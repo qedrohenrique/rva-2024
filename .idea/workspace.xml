@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f0f77ca-c842-4ddf-920b-614a4a3a7f0f" name="Changes" comment="Initial commit" />
+    <list default="true" id="5f0f77ca-c842-4ddf-920b-614a4a3a7f0f" name="Changes" comment="Initial commit">
+      <change afterPath="$PROJECT_DIR$/Camera/calibrate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Camera/images.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Camera/read_pkl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UseCases/3dreconstruct.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UseCases/ceb1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UseCases/ceb2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UseCases/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UseCases/img_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,8 +43,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.3dreconstruct.executor": "Run",
+    "Python.calibrate.executor": "Run",
+    "Python.images.executor": "Run",
     "Python.object_recognition.executor": "Run",
     "Python.object_tracking.executor": "Run",
+    "Python.read_pkl.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master"
   },
@@ -46,6 +60,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\rva-2024\pythonProject\UseCases" />
+      <recent name="D:\rva-2024\pythonProject\Camera" />
       <recent name="D:\rva-2024\pythonProject" />
     </key>
   </component>
