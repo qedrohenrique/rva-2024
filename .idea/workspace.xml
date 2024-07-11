@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f0f77ca-c842-4ddf-920b-614a4a3a7f0f" name="Changes" comment="Initial commit" />
+    <list default="true" id="5f0f77ca-c842-4ddf-920b-614a4a3a7f0f" name="Changes" comment="Initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/3dreconstruct.py" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/3dreconstruct.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/object_recognition.py" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/object_recognition.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UseCases/object_tracking.py" beforeDir="false" afterPath="$PROJECT_DIR$/UseCases/object_tracking.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,23 +36,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.3dreconstruct.executor": "Run",
-    "Python.calibrate.executor": "Run",
-    "Python.images.executor": "Run",
-    "Python.object_recognition.executor": "Run",
-    "Python.object_tracking.executor": "Run",
-    "Python.read_pkl.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.3dreconstruct.executor&quot;: &quot;Run&quot;,
+    &quot;Python.calibrate.executor&quot;: &quot;Run&quot;,
+    &quot;Python.images.executor&quot;: &quot;Run&quot;,
+    &quot;Python.object_recognition.executor&quot;: &quot;Run&quot;,
+    &quot;Python.object_tracking.executor&quot;: &quot;Run&quot;,
+    &quot;Python.read_pkl.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "PLAIN_TEXT"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;PLAIN_TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\rva-2024\pythonProject\UseCases" />

@@ -22,7 +22,7 @@ def get_metrics(frame, boundary_box):
     return term_crit, roi_hist
 
 
-def object_track(cap, term_crit, roi_hist):
+def object_track(cap, term_crit, roi_hist, boundary_box):
     while True:
         ret, frame = cap.read()
 
