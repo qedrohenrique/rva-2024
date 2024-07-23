@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "rva"
+version = "0.1.0"
+description = ""
+authors = ["mtfs1 <math.santos.2002@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+opencv-python = "^4.10.0.84"
+ultralytics = "^8.2.54"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
