@@ -1,8 +1,13 @@
+import os
+
 from ultralytics import YOLO
 import cv2
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+
 RED = (255, 0, 0)
-IMAGE_SAMPLE = cv2.imread("img.png")
+IMAGE_SAMPLE = cv2.imread(os.path.join(current_dir, "img.png"))
 
 
 def get_model_data():
