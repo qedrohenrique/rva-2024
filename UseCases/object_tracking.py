@@ -2,6 +2,12 @@ import numpy as np
 import cv2
 
 
+def main():
+    cap = cv2.VideoCapture(0)
+    frame, boundary_box = select_object(cap)
+    term_crit, roi_hist = get_metrics(frame, boundary_box)
+    object_track(cap, term_crit, roi_hist)
+
 def select_object(cap):
     _, frame = cap.read()
     boundary_box = cv2.selectROI('Webcam', frame, False)
@@ -43,3 +49,8 @@ def object_track(cap, term_crit, roi_hist, boundary_box):
 
     cap.release()
     cv2.destroyAllWindows()
+
+
+if __name__ == "__main__":
+    main()
+

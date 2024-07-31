@@ -10,6 +10,11 @@ RED = (255, 0, 0)
 IMAGE_SAMPLE = cv2.imread(os.path.join(current_dir, "img.png"))
 
 
+def main():
+    model, classNames = get_model_data()
+    # webcam_recognition(model, classNames)
+    image_recognition(model, classNames, IMAGE_SAMPLE)
+
 def get_model_data():
     return (YOLO("../yolo-Weights/yolov8n.pt"),
             ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
@@ -83,3 +88,6 @@ def image_recognition(image_model, image_classnames, image):
     cv2.imshow("Result", image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+
+if __name__ == '__main__':
+    main()
