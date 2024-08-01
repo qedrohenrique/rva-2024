@@ -12,8 +12,9 @@ IMAGE_SAMPLE = cv2.imread(os.path.join(current_dir, "img.png"))
 
 def main():
     model, classNames = get_model_data()
-    # webcam_recognition(model, classNames)
-    image_recognition(model, classNames, IMAGE_SAMPLE)
+    webcam_recognition(model, classNames)
+    # image_recognition(model, classNames, IMAGE_SAMPLE)
+    exit()
 
 def get_model_data():
     return (YOLO("../yolo-Weights/yolov8n.pt"),

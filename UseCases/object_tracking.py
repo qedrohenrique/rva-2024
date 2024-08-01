@@ -6,7 +6,8 @@ def main():
     cap = cv2.VideoCapture(0)
     frame, boundary_box = select_object(cap)
     term_crit, roi_hist = get_metrics(frame, boundary_box)
-    object_track(cap, term_crit, roi_hist)
+    object_track(cap, term_crit, roi_hist, boundary_box)
+    exit()
 
 def select_object(cap):
     _, frame = cap.read()
