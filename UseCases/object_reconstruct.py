@@ -1,11 +1,20 @@
+import os
 import cv2
 import numpy as np
+import matplotlib
 import matplotlib.pyplot as plt
 
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+img1 = cv2.imread(os.path.join(current_dir, "ceb1.jpg"))
+img2 = cv2.imread(os.path.join(current_dir, "ceb2.jpg"))
+
+def main():
+    matplotlib.use('TkAgg')
+    reconstruct()
+    exit()
+
 def reconstruct():
-    img1 = cv2.imread('ceb1.jpg')
-    img2 = cv2.imread('ceb2.jpg')
 
     fx = 1244.7577973309199
     fy = 1240.3033413061512
@@ -51,3 +60,6 @@ def reconstruct():
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
     plt.show()
+
+if __name__ == "__main__":
+    main()
