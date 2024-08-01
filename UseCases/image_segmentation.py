@@ -1,9 +1,11 @@
 import cv2
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 
 
-IMAGE_SAMPLE = cv2.imread('assets/img2.png')
+current_dir = os.path.dirname(os.path.abspath(__file__))
+IMAGE_SAMPLE = cv2.imread(os.path.join(current_dir, "assets/img2.png"))
 
 
 def main():
