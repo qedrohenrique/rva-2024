@@ -6,16 +6,17 @@ import matplotlib.pyplot as plt
 
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-img1 = cv2.imread(os.path.join(current_dir, "ceb1.jpg"))
-img2 = cv2.imread(os.path.join(current_dir, "ceb2.jpg"))
+IMAGE_SAMPLE_1 = cv2.imread(os.path.join(current_dir, "ceb1.jpg"))
+IMAGE_SAMPLE_2 = cv2.imread(os.path.join(current_dir, "ceb2.jpg"))
+
 
 def main():
     matplotlib.use('TkAgg')
-    reconstruct()
+    reconstruct(IMAGE_SAMPLE_1, IMAGE_SAMPLE_2)
     exit()
 
-def reconstruct():
 
+def reconstruct(img1, img2):
     fx = 1244.7577973309199
     fy = 1240.3033413061512
     cx = 283.38906943038273
@@ -60,6 +61,7 @@ def reconstruct():
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
     plt.show()
+
 
 if __name__ == "__main__":
     main()
