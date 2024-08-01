@@ -1,19 +1,19 @@
 import os
-
 from ultralytics import YOLO
 import cv2
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-
-
-RED = (255, 0, 0)
 IMAGE_SAMPLE = cv2.imread(os.path.join(current_dir, "assets/img.png"))
+RED = (255, 0, 0)
 
 
 def main():
     model, classNames = get_model_data()
-    webcam_recognition(model, classNames)
-    # image_recognition(model, classNames, IMAGE_SAMPLE)
+    try:
+        webcam_recognition(model, classNames)
+    except Exception as e: 
+        print(f"{e}. Showing image sample...")
+        image_recognition(model, classNames, IMAGE_SAMPLE)
     exit()
 
 def get_model_data():
@@ -36,14 +36,12 @@ def get_font_data(x, y):
 
 
 def webcam_recognition(webcam_model, webcam_classnames):
-    # Webcam and model setup
     cap = cv2.VideoCapture(0)
     cap.set(3, 800)
     cap.set(4, 600)
 
     if not cap.isOpened():
-        print("Couldn't open camera")
-        exit(1)
+        raise Exception("Couldn't open camera!")
 
     while True:
         success, img = cap.read()
@@ -63,11 +61,10 @@ def webcam_recognition(webcam_model, webcam_classnames):
 
         cv2.imshow('Webcam', img)
         if cv2.waitKey(1) == ord('q'):
+            cap.release()
+            cv2.destroyAllWindows()
             break
 
-    cap.release()
-    cv2.destroyAllWindows()
-    exit(0)
 
 
 def image_recognition(image_model, image_classnames, image):
@@ -86,9 +83,11 @@ def image_recognition(image_model, image_classnames, image):
 
                 cv2.putText(image, className, pos, font, fontScale, fontColor, fontWeight)
 
-    cv2.imshow("Result", image)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    while True:
+        cv2.imshow("Result", image)
+        if cv2.waitKey(1) == ord('q'):
+            cv2.destroyAllWindows()
+            break
 
 if __name__ == '__main__':
     main()
