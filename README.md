@@ -1,4 +1,4 @@
-# SandBocv
+# SandboCV
 
 An application for you to learn about XR topics using Computational Vision.
 
@@ -6,9 +6,19 @@ An application for you to learn about XR topics using Computational Vision.
 
 ...
 
+## Usage
+
+´s´
+´q´
+´j´
+´k´
+´enter´
+
 ## Content
 
-...
+- Object tracking
+- Object Recognition
+- Object Reconstruction
 
 ## How to contribute
 
