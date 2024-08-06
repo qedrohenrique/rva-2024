@@ -2,13 +2,14 @@
 name = "rva"
 version = "0.1.0"
 description = ""
-authors = ["mtfs1 <math.santos.2002@gmail.com>"]
+authors = ["mtfs1 <math.santos.2002@gmail.com>", "qedrohenrique pedro.005henr@gmail.com"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
 opencv-python = "^4.10.0.84"
 ultralytics = "^8.2.54"
+matplotlib = ">=3.8,<4.0"
 
 
 [build-system]
