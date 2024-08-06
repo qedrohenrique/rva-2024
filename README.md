@@ -30,4 +30,6 @@ Run `poetry shell` then `python main.py`
 ## How to contribute
 
 You can fork this project, or contact us!
-...
+
+For more information about the project: [SandBocv.pdf](https://github.com/user-attachments/files/16510287/SandBocv.pdf)
+
