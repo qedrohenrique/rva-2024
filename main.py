@@ -46,6 +46,14 @@ def main():
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
             list(options.values())[selected]()
 
+        if ch.isdigit():
+            val = int(ch)
+            if val >= 0 and val < len(options.values()):
+                clear_screen()
+                move_to(0, 0)
+                termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+                list(options.values())[val]()
+
         if ch in ["q"]:
             break
 

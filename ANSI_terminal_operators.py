@@ -44,10 +44,12 @@ def print_logo(screen_width: int):
 
 def print_options(options: list[str], screen_width, space_between_options):
     left_margin = math.ceil((screen_width * 0.7) / 2)
-    for option in options:
+    for i, option in enumerate(options):
         move_cursor_down(space_between_options)
         move_cursor_forward(left_margin)
-        print(option, end="\r")
+        print(option, end="")
+        move_cursor_forward(screen_width - (2 * left_margin) - len(option) - 3)
+        print(f"[{i}]", end="\r")
     move_cursor_up(space_between_options * (len(options) - 1))
     move_cursor_forward(left_margin)
 
