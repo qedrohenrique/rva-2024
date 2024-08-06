@@ -8,6 +8,8 @@ You will need to be on Linux and have installed opencv, numpy and matplotlib.
 
 ## Usage
 
+Run `poetry shell` then `python main.py`
+
 `s` Start OpenCV
 
 `q` Quit
