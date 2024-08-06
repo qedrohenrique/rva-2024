@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-IMAGE_SAMPLE_1 = cv2.imread(os.path.join(current_dir, "ceb1.jpg"))
-IMAGE_SAMPLE_2 = cv2.imread(os.path.join(current_dir, "ceb2.jpg"))
+IMAGE_SAMPLE_1 = cv2.imread(os.path.join(current_dir, "assets/ceb1.jpg"))
+IMAGE_SAMPLE_2 = cv2.imread(os.path.join(current_dir, "assets/ceb2.jpg"))
 
 
 def main():
