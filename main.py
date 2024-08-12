@@ -7,6 +7,12 @@ import tty
 from ANSI_terminal_operators import *
 from UseCases import options
 
+explanation_options = {
+    "object tracking": explain_object_tracking,
+    "object recognition": explain_object_recognition,
+    "object_reconstruction": explain_object_reconstruction,
+    "image_segmentation": explain_image_segmentation
+}
 
 def main():
     fd = sys.stdin.fileno()
@@ -20,13 +26,8 @@ def main():
 
     screen_width, _ = shutil.get_terminal_size()
 
-    SPACE_BETWEEN_OPTIONS = 3
-    TOP_MARGIN = 5
-
-    print("\n" * TOP_MARGIN)
-    print_logo(screen_width)
-    print_options(options.keys(), screen_width, SPACE_BETWEEN_OPTIONS)
-
+    print_menu(screen_width, options)
+    
     while True:
         ch = sys.stdin.read(1)
 
@@ -45,6 +46,16 @@ def main():
             move_to(0, 0)
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
             list(options.values())[selected]()
+
+        if ch == "i":
+            clear_screen()
+            move_to(0, 0)
+            list(explanation_options.values())[selected](screen_width)
+
+        if ch == "m":
+            clear_screen()
+            move_to(0, 0)
+            print_menu(screen_width, options)
 
         if ch.isdigit():
             val = int(ch)
