@@ -4,8 +4,9 @@ import sys
 import termios
 import tty
 
-from ANSI_terminal_operators import *
 from UseCases import options
+from UI.ANSI_terminal_operators import *
+
 
 explanation_options = {
     "object tracking": explain_object_tracking,
@@ -71,7 +72,4 @@ def main():
     clear_screen()
     move_to(0, 0)
     termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-
-if __name__ == "__main__":
-    main()
 
