@@ -7,13 +7,26 @@ IMAGE_SAMPLE = cv2.imread(os.path.join(current_dir, "assets/img.png"))
 RED = (255, 0, 0)
 
 
+def get_user_model_data():
+    model_name = input("Escreva o nome do seu modelo: ")
+    class_names = input("Escreva os objetos reconhecidos do seu modelo, separado por um espaço: ")
+    return YOLO(f"./User/{model_name}"), class_names.split(' ')
+
 def main():
-    model, classNames = get_model_data()
+    model, classNames = None, None
+    try:
+        model, classNames = get_user_model_data()
+        print("Modelo e objetos reconhecidos encontados.")
+    except Exception as e:
+        model, classNames = get_model_data()
+        print("Modelo e objetos reconhecidos não encontados. Usando modelo de testes.")
+
     try:
         webcam_recognition(model, classNames)
     except Exception as e: 
-        print(f"{e}. Showing image sample...")
+        print(f"{e}. Mostrando imagem de testes...")
         image_recognition(model, classNames, IMAGE_SAMPLE)
+
     exit()
 
 def get_model_data():
