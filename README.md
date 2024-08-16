@@ -12,6 +12,8 @@ Run `poetry shell` then `python main.py`
 
 `s` Start OpenCV
 
+`i` Topic info
+
 `q` Quit
 
 `j` Up
