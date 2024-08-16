@@ -8,12 +8,22 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 IMAGE_SAMPLE = cv2.imread(os.path.join(current_dir, "assets/img2.png"))
 
 
+def get_input_image():
+    img_name = input("Escreva o nome da sua imagem: ")
+    return cv2.imread(os.path.join(current_dir, f"User/{img_name}"))
+
 def main():
-    segment_image(IMAGE_SAMPLE)
+    try:
+        img = get_input_image()
+        print("Imagem encontrada!")
+        segment_image(img)
+    except Exception as e:
+        print("Imagem não encontrada! Usando imagem de teste.")
+        segment_image(IMAGE_SAMPLE)
     exit()
 
 
-def segment_image(image):
+def segment_image(image = IMAGE_SAMPLE):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     _, binary = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
     kernel = np.ones((5,5), np.uint8)
