@@ -21,6 +21,7 @@ def main():
     tty.setraw(sys.stdin)
 
     selected = 0
+    info_screen = False
 
     clear_screen()
     move_to(0, 0)
@@ -31,6 +32,19 @@ def main():
     
     while True:
         ch = sys.stdin.read(1)
+
+        if ch in ["q"]:
+            break
+
+        if info_screen:
+            if ch == "m":
+                clear_screen()
+                move_to(0, 0)
+                print_menu(screen_width, options)
+                info_screen = False
+                for i in range(selected):
+                    move_cursor_down(SPACE_BETWEEN_OPTIONS)
+            continue
 
         if ch in ["j"]:
             if selected + 1 < len(options):
@@ -52,11 +66,7 @@ def main():
             clear_screen()
             move_to(0, 0)
             list(explanation_options.values())[selected](screen_width)
-
-        if ch == "m":
-            clear_screen()
-            move_to(0, 0)
-            print_menu(screen_width, options)
+            info_screen = True
 
         if ch.isdigit():
             val = int(ch)
@@ -65,9 +75,6 @@ def main():
                 move_to(0, 0)
                 termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
                 list(options.values())[val]()
-
-        if ch in ["q"]:
-            break
 
     clear_screen()
     move_to(0, 0)
