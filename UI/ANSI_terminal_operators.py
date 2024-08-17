@@ -258,7 +258,7 @@ def explain_object_reconstruction(screen_width: int):
     move_cursor_backward(screen_width)
 
 def explain_image_segmentation(screen_width: int):
-    title = "Reconhecimento de Objetos\n"
+    title = "Segmentação de Imagem\n"
     explanation = r"""
     A segmentação de imagem é a técnica de dividir uma imagem
     em diferentes regiões ou segmentos que compartilham características
