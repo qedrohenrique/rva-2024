@@ -10,23 +10,26 @@ RED = (255, 0, 0)
 def get_user_model_data():
     model_name = input("Escreva o nome do seu modelo: ")
     class_names = input("Escreva os objetos reconhecidos do seu modelo, separado por um espaço: ")
-    return YOLO(f"./User/{model_name}"), class_names.split(' ')
+    print(class_names.split(' '))
+    return (YOLO(os.path.join(current_dir, f"User/{model_name}")), class_names.split(' '))
 
-def main():
-    model, classNames = None, None
-    try:
-        model, classNames = get_user_model_data()
-        print("Modelo e objetos reconhecidos encontados.")
-    except Exception as e:
-        model, classNames = get_model_data()
-        print("Modelo e objetos reconhecidos não encontados. Usando modelo de testes.")
 
+def recognition(model, classNames):
     try:
         webcam_recognition(model, classNames)
     except Exception as e: 
         print(f"{e}. Mostrando imagem de testes...")
         image_recognition(model, classNames, IMAGE_SAMPLE)
 
+def main():
+    try:
+        model, classNames = get_user_model_data()
+        print("Modelo e objetos reconhecidos encontados.")
+        recognition(model, classNames)
+    except Exception as e:
+        model, classNames = get_model_data()
+        print("Modelo e objetos reconhecidos não encontados. Usando modelo de testes.")
+        recognition(model, classNames)
     exit()
 
 def get_model_data():
@@ -67,7 +70,11 @@ def webcam_recognition(webcam_model, webcam_classnames):
 
                 cv2.rectangle(img, (x1, y1), (x2, y2), RED, 2)
 
-                className = webcam_classnames[int(box.cls[0])]
+                try:
+                    className = webcam_classnames[int(box.cls[0])]
+                except IndexError:
+                    className = "Not defined classname"
+
                 pos, font, fontScale, fontColor, fontWeight = get_font_data(x1, y1)
 
                 cv2.putText(img, className, pos, font, fontScale, fontColor, fontWeight)
@@ -91,7 +98,11 @@ def image_recognition(image_model, image_classnames, image):
 
                 cv2.rectangle(image, (x1, y1), (x2, y2), RED, 2)
 
-                className = image_classnames[int(box.cls[0])]
+                try:
+                    className = webcam_classnames[int(box.cls[0])]
+                except IndexError:
+                    className = "Not defined classname"     
+                
                 pos, font, fontScale, fontColor, fontWeight = get_font_data(x1, y1)
 
                 cv2.putText(image, className, pos, font, fontScale, fontColor, fontWeight)
