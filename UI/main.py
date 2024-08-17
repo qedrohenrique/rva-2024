@@ -6,6 +6,7 @@ import tty
 
 from UseCases import options
 from UI.ANSI_terminal_operators import *
+from UI.info_texts import *
 
 
 explanation_options = {
