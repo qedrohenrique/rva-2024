@@ -8,7 +8,7 @@ You will need to be on Linux and have installed opencv, numpy and matplotlib.
 
 ## Usage
 
-Run `poetry shell` then `python main.py`
+Run `poetry shell` then `python sandbocv.py`
 
 `s` Start OpenCV
 
