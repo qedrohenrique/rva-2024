@@ -20,6 +20,8 @@ Run `poetry shell` then `python main.py`
 
 `k` Down
 
+`m` Menu
+
 `enter` Confirm action
 
 ## Content
