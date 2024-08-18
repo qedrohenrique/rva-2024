@@ -35,5 +35,5 @@ Run `poetry shell` then `python main.py`
 
 You can fork this project, or contact us!
 
-For more information about the project: [SandBocv.pdf](https://github.com/user-attachments/files/16510287/SandBocv.pdf)
+For more information about the project: [SandBocv.pdf](https://github.com/user-attachments/files/16651488/SandBocv.4.pdf)
 
