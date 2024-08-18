@@ -10,9 +10,19 @@ IMAGE_SAMPLE_1 = cv2.imread(os.path.join(current_dir, "assets/ceb1.jpg"))
 IMAGE_SAMPLE_2 = cv2.imread(os.path.join(current_dir, "assets/ceb2.jpg"))
 
 
+def get_input_images():
+    img_name1 = input("Escreva o nome da sua imagem 1: ")
+    img_name2 = input("Escreva o nome da sua imagem 1: ")
+    return cv2.imread(os.path.join(current_dir, f"User/{img_name1}")), cv2.imread(os.path.join(current_dir, f"User/{img_name2}"))
+
 def main():
     matplotlib.use('TkAgg')
-    reconstruct(IMAGE_SAMPLE_1, IMAGE_SAMPLE_2)
+    try:
+        img1, img2 = get_input_images()
+        reconstruct(img1, img2)
+    except Exception as e:
+        print("Imagem não encontrada! Usando imagem de teste.")
+        reconstruct(IMAGE_SAMPLE_1, IMAGE_SAMPLE_2)
     exit()
 
 

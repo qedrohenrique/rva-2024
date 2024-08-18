@@ -15,7 +15,6 @@ def get_input_image():
 def main():
     try:
         img = get_input_image()
-        print("Imagem encontrada!")
         segment_image(img)
     except Exception as e:
         print("Imagem não encontrada! Usando imagem de teste.")
