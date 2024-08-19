@@ -40,7 +40,7 @@ class TrainModel():
         if os.path.exists(f'../UserYaml/{self.yaml_file_name}'):
             model = YOLO("yolov8s.pt") 
             model.train(data=f'../UserYaml/{self.yaml_file_name}', epochs=10, imgsz=640)
-            model.save(f'UserModels/{self.user_model_name}') 
+            model.save(f'./UserModels/{self.user_model_name}') 
             if os.path.exists("yolov8s.pt"):
                 os.remove("yolov8s.pt")
         else:
@@ -50,11 +50,15 @@ class TrainModel():
     def predict(self, path):
         if os.path.exists(path):
             model = YOLO(f'UserModels/{self.user_model_name}')
-            results = model.predict(source=path)   
-            print(results)
+            results = model.predict(source=path)
+            image_index = 0   
+            for img in results:
+                img.save(f'C:/Users/Conrado/Desktop/rva-2024/predicted_image_{image_index}.jpg')
+                image_index+=1
         else:
             raise Exception("Path to image does not exist")
         
+
 
     
 
