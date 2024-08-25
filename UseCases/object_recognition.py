@@ -3,7 +3,7 @@ from ultralytics import YOLO
 import cv2
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-IMAGE_SAMPLE = cv2.imread(os.path.join(current_dir, "assets/img.png"))
+IMAGE_SAMPLE = cv2.imread(os.path.join(current_dir, "assets", "img.png"))
 RED = (255, 0, 0)
 
 
@@ -11,7 +11,7 @@ def get_user_model_data():
     model_name = input("Escreva o nome do seu modelo: ")
     class_names = input("Escreva os objetos reconhecidos do seu modelo, separado por um espaço: ")
     print(class_names.split(' '))
-    return (YOLO(os.path.join(current_dir, f"User/{model_name}")), class_names.split(' '))
+    return (YOLO(os.path.join(current_dir, "User", model_name)), class_names.split(' '))
 
 
 def recognition(model, classNames):
@@ -33,7 +33,7 @@ def main():
     exit()
 
 def get_model_data():
-    return (YOLO("../yolo-Weights/yolov8n.pt"),
+    return (YOLO(os.path.join(current_dir, "..", "yolo-Weights", "yolov8n.pt")),
             ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
              "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",
              "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella",

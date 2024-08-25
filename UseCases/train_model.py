@@ -2,6 +2,10 @@ import os
 from ultralytics import YOLO
 import yaml
 
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+
 class TrainModel():
     def __init__(self):
         self.yaml_file_name = ''
@@ -30,17 +34,22 @@ class TrainModel():
 
         self.yaml_file_name = input("Name of YAML file to be created (example, 'custom_dataset.yaml'): ")
 
-        with open(f'../UserYaml/{self.yaml_file_name}', 'w') as yaml_file:
+        model_path = os.path.join(current_dir, "..", "UserYaml",
+            self.yaml_file_name)
+        with open(model_path, 'w') as yaml_file:
             yaml.dump(yaml_content, yaml_file, sort_keys=False, default_flow_style=False)
 
         print(f"File {self.yaml_file_name} created success!")
 
 
     def create_model(self):
-        if os.path.exists(f'../UserYaml/{self.yaml_file_name}'):
+        yaml_path = os.path.join(current_dir, "..", "UserYaml", self.yaml_file_name)
+        model_path = os.path.join(current_dir, "..", "UserModels",
+            self.user_model_name)
+        if os.path.exists(yaml_path):
             model = YOLO("yolov8s.pt") 
-            model.train(data=f'../UserYaml/{self.yaml_file_name}', epochs=10, imgsz=640)
-            model.save(f'./UserModels/{self.user_model_name}') 
+            model.train(data=yaml_path, epochs=10, imgsz=640)
+            model.save(model_path)
             if os.path.exists("yolov8s.pt"):
                 os.remove("yolov8s.pt")
         else:
@@ -49,16 +58,16 @@ class TrainModel():
 
     def predict(self, path):
         if os.path.exists(path):
-            model = YOLO(f'UserModels/{self.user_model_name}')
+            model_path = os.path.join(current_dir, "..", "UserModels",
+                self.user_model_name)
+            model = YOLO(model_path)
             results = model.predict(source=path)
             image_index = 0   
             for img in results:
-                img.save(f'C:/Users/Conrado/Desktop/rva-2024/predicted_image_{image_index}.jpg')
+                image_path = os.path.join(current_dir, "..",
+                    f"predicted_image_{image_index}.jpg")
+                img.save(image_path)
                 image_index+=1
         else:
             raise Exception("Path to image does not exist")
-        
-
-
-    
 

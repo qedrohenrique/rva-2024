@@ -5,12 +5,12 @@ import matplotlib.pyplot as plt
 
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-IMAGE_SAMPLE = cv2.imread(os.path.join(current_dir, "assets/img2.png"))
+IMAGE_SAMPLE = cv2.imread(os.path.join(current_dir, "assets", "img2.png"))
 
 
 def get_input_image():
     img_name = input("Escreva o nome da sua imagem: ")
-    return cv2.imread(os.path.join(current_dir, f"User/{img_name}"))
+    return cv2.imread(os.path.join(current_dir, "User", img_name))
 
 def main():
     try:
