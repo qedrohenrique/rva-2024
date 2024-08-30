@@ -24,6 +24,12 @@ class TrainModel():
             class_name = input(f"Name of class {_class+1}: ")
             names[_class] = class_name
 
+        dataset_root = os.path.abspath(dataset_root)
+        train_path = os.path.join(dataset_root, train_path)
+        val_path = os.path.join(dataset_root, val_path)
+        if test_path:
+            test_path = os.path.join(dataset_root, test_path)
+
         yaml_content = {
             'path': dataset_root,
             'train': train_path,
