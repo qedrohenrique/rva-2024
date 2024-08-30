@@ -40,6 +40,9 @@ class TrainModel():
 
         self.yaml_file_name = input("Name of YAML file to be created (example, 'custom_dataset.yaml'): ")
 
+        if not os.path.exists(os.path.join(current_dir, "..", "UserYaml")):
+            os.mkdir(os.path.join(current_dir, "..", "UserYaml"))
+
         model_path = os.path.join(current_dir, "..", "UserYaml",
             self.yaml_file_name)
         with open(model_path, 'w') as yaml_file:
