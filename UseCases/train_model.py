@@ -80,3 +80,30 @@ class TrainModel():
         else:
             raise Exception("Path to image does not exist")
 
+def create_model():
+    model = TrainModel()
+    model.create_yaml_file()
+    model.create_model()
+
+def select_model():
+    user_models_dir = os.path.join(current_dir, "..", "UserModels")
+    if not os.path.exists(user_models_dir):
+        print("Nenhum modelo adicionado")
+        return
+
+    models = os.listdir(user_models_dir)
+    for model in models:
+        print(f"> {model}")
+
+    while True:
+        model_name = input("Selecione o modelo que deseja utilizar: ")
+        if os.path.exists(os.path.join(user_models_dir, model_name)):
+            break
+        print("Este modelo nao existe")
+
+    model = TrainModel()
+    model.user_model_name = model_name
+
+    path = input("Entre com o caminho das imagens que deseja fazer predicoes: ")
+    model.predict(path)
+
